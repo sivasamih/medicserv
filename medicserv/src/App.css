@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+html,body{
+  font-family: Calibri !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.theme{
+  font-family: Calibri !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo-text{
+  font-size: 25px !important;
+  letter-spacing: 4 !important;
+  color: #21929d !important;
+  font-weight: bolder !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navDiv{
+  width: 100% !important;
+  background-color: #fff !important;
+  font-family: Calibri !important;
+  display: inline;
 }
 
-.App-link {
-  color: #61dafb;
+.height-50{
+  height: 50px !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.subtitle-heading{
+  font-family: Calibri !important;
+  font-size: 25px !important;
+  font-weight: bold !important;
+}
+
+.price-chip{
+  font-weight: bold !important;
+  font-size: 15px !important;
+}
+
+.card1{
+  background-color: #fff;
+  cursor: pointer  !important;
+}
+
+.card1:hover{
+  background-color: #e0f7fa !important;
+  cursor: pointer  !important;
 }
