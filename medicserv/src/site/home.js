@@ -9,11 +9,23 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 
+import store from "../store"
+
 
 class home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.myState;
+        this.state = {
+            cartItems:[],
+        };
+
+        store.subscribe(()=>{
+            const myState= store.getState();
+            console.log("IN home > myState > ",myState);
+            this.setState({
+                cartItems:myState.performAddToCart.cartItems
+            });
+        });
     }
     componentDidMount() {
         console.log("this.props > ",this.props);
@@ -112,8 +124,7 @@ class home extends React.Component {
         return (
             <>
                 <AppContainer
-                    cartItems={this.props.cartItems}
-                    state={this.props.myState}
+                   cartItems={this.state.cartItems}
                     html={<>
                         <TCB/>
 

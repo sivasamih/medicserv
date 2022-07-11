@@ -14,14 +14,17 @@ import Fade from '@mui/material/Fade';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
-import {useSelector,useDispatch} from "react-redux";
-import store from '../../store';
+ 
+
+ 
 
 function ScrollTop(props) {
+
+    
+
+
     const { children, window } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
+   
     const trigger = useScrollTrigger({
         target: window ? window() : undefined,
         disableHysteresis: true,
@@ -63,11 +66,10 @@ ScrollTop.propTypes = {
 };
 
 export default function AppContainer(props) {
-    console.log("AppContainer > store.getState() : ",store.getState())
-    
+    console.log("AppContainer > props.cartItems > ",props.cartItems);
     return (
         <React.Fragment>
-           {console.log("AppContainer > props > ",props)}
+          
             <CssBaseline />
             <AppBar className="navDiv">
                 <Toolbar>
@@ -81,7 +83,7 @@ export default function AppContainer(props) {
                     <IconButton
                         size="small"
                     >
-                        <Badge badgeContent={0} color="primary">
+                        <Badge badgeContent={props.cartItems.length} color="primary">
                             <ShoppingCartIcon />
                         </Badge>
                     </IconButton>
