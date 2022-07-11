@@ -4,6 +4,7 @@ import TCB from "./components/topcontactusbanner";
 import Card1 from "./components/Card1.js";
 import Card2 from "./components/Card2.js";
 
+
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
@@ -12,13 +13,15 @@ import Typography from '@mui/material/Typography';
 class home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = this.props.myState;
     }
-    componentDidMount() { }
+    componentDidMount() {
+        console.log("this.props > ",this.props);
+     }
     render() {
 
-
         const Service1 = (
+            
             <>
                 <div className="height-50"></div>
                 <Typography variant="h6" gutterBottom component="div" className="subtitle-heading">
@@ -31,6 +34,7 @@ class home extends React.Component {
                         title2="known as Glucose Fasting Blood"
                         title3="Free Home Sample Pickup & E-Reports on Same day"
                         price="150"
+                        onClick={this.props.addToCart}
                         />
                     </Grid>
                     <Grid xs={12} sm={6} md={4} lg={4}>
@@ -108,6 +112,8 @@ class home extends React.Component {
         return (
             <>
                 <AppContainer
+                    cartItems={this.props.cartItems}
+                    state={this.props.myState}
                     html={<>
                         <TCB/>
 

@@ -8,7 +8,14 @@ import Typography from '@mui/material/Typography';
 import CardHeader from '@mui/material/CardHeader';
 import Chip from '@mui/material/Chip';
 
+import {addToCart} from "../../actions/index";
+
+import {useSelector,useDispatch} from "react-redux";
+
+
+
 export default function Card1(props) {
+    const dispatch=useDispatch();
     return (
         <Box sx={{ minWidth: 240, marginRight: 2,marginTop:1 }}>
             <Card variant="outlined" className='card1'>
@@ -37,9 +44,9 @@ export default function Card1(props) {
                         {props.title3}
                     </Typography>
                 </CardContent>
-                {/* <CardActions>
-                    <Button size="small">Know More</Button>
-                </CardActions> */}
+                <CardActions>
+                    <Button size="small" onClick={props.onClick}>ADD</Button>
+                </CardActions>
             </Card>
         </Box>
     );

@@ -11,6 +11,11 @@ import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
+import {useSelector,useDispatch} from "react-redux";
+import store from '../../store';
 
 function ScrollTop(props) {
     const { children, window } = props;
@@ -58,8 +63,11 @@ ScrollTop.propTypes = {
 };
 
 export default function AppContainer(props) {
+    console.log("AppContainer > store.getState() : ",store.getState())
+    
     return (
         <React.Fragment>
+           {console.log("AppContainer > props > ",props)}
             <CssBaseline />
             <AppBar className="navDiv">
                 <Toolbar>
@@ -70,12 +78,19 @@ export default function AppContainer(props) {
                     >
                         <span className='logo-text'>MEDICSERV</span>
                     </Typography>
+                    <IconButton
+                        size="small"
+                    >
+                        <Badge badgeContent={0} color="primary">
+                            <ShoppingCartIcon />
+                        </Badge>
+                    </IconButton>
                 </Toolbar>
             </AppBar>
             <Toolbar id="back-to-top-anchor" />
             <Container>
                 <Box sx={{ my: 2 }}>
-                   {props.html}
+                    {props.html}
                 </Box>
             </Container>
             <ScrollTop {...props}>
